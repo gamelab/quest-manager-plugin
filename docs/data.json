@@ -1,0 +1,325 @@
+{
+    "project": {
+        "name": "Quests",
+        "description": "Quest Manager.",
+        "version": "1.0.0",
+        "url": "http://kiwijs.org/"
+    },
+    "files": {
+        "src\\Quests-1.0.0.js": {
+            "name": "src\\Quests-1.0.0.js",
+            "modules": {
+                "Plugins": 1
+            },
+            "classes": {
+                "Kiwi.Plugins.QuestManager": 1,
+                "Kiwi.Plugins.Quests.QuestManager": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Kiwi.Plugins": 1,
+                "Kiwi.Plugins.Quests": 1
+            }
+        }
+    },
+    "modules": {
+        "Kiwi": {
+            "name": "Kiwi",
+            "submodules": {
+                "Plugins": 1
+            },
+            "classes": {
+                "Kiwi.Plugins.QuestManager": 1,
+                "Kiwi.Plugins.Quests.QuestManager": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Kiwi.Plugins": 1,
+                "Kiwi.Plugins.Quests": 1
+            },
+            "file": "src\\Quests-1.0.0.js",
+            "line": 15
+        },
+        "Plugins": {
+            "name": "Plugins",
+            "submodules": {},
+            "classes": {
+                "Kiwi.Plugins.QuestManager": 1,
+                "Kiwi.Plugins.Quests.QuestManager": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "Kiwi.Plugins": 1,
+                "Kiwi.Plugins.Quests": 1
+            },
+            "module": "Kiwi",
+            "namespace": "",
+            "file": "src\\Quests-1.0.0.js",
+            "line": 15,
+            "description": "The basic Quest Manager Object. Contains name and version number."
+        }
+    },
+    "classes": {
+        "Kiwi.Plugins.QuestManager": {
+            "name": "Kiwi.Plugins.QuestManager",
+            "shortname": "Kiwi.Plugins.QuestManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins",
+            "file": "src\\Quests-1.0.0.js",
+            "line": 1,
+            "description": "The basic Quest Manager Object. Contains name and version number."
+        },
+        "Kiwi.Plugins.Quests.QuestManager": {
+            "name": "Kiwi.Plugins.Quests.QuestManager",
+            "shortname": "Kiwi.Plugins.Quests.QuestManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests",
+            "file": "src\\Quests-1.0.0.js",
+            "line": 15,
+            "description": "A Kiwi Plugin GameObject that can manage a set of quests.\n\nYou can currently set two types of quests. \nNumber quests keep track of a variable, and once it has reached it's specified objective, the quest is completed.\nBoolean quests keep track of a variable and once it is true or false, depending on the objective set, the quest is completed.",
+            "extends": "Entity",
+            "is_constructor": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "src\\Quests-1.0.0.js",
+            "line": 74,
+            "description": "A method that creates a new quest. A quest is not started until startQuest is called, this method only creates and stores a new quest.",
+            "itemtype": "method",
+            "name": "createQuest",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The name of the quest created.",
+                    "type": "String"
+                },
+                {
+                    "name": "typeVar",
+                    "description": "The type of quest created. 'number' or 'boolean'.",
+                    "type": "String"
+                },
+                {
+                    "name": "startValue",
+                    "description": "Starting value.",
+                    "type": "Boolean or number"
+                },
+                {
+                    "name": "objectiveVar",
+                    "description": "Objective value. Once the current value maches, quest is completed.",
+                    "type": "Boolean or number"
+                },
+                {
+                    "name": "descriptionVar",
+                    "description": "String describing item.",
+                    "type": "String"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.Quests.QuestManager",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests"
+        },
+        {
+            "file": "src\\Quests-1.0.0.js",
+            "line": 95,
+            "description": "A method that starts a created quest.",
+            "itemtype": "method",
+            "name": "startQuest",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "Name of quest to start.",
+                    "type": "String"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.Quests.QuestManager",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests"
+        },
+        {
+            "file": "src\\Quests-1.0.0.js",
+            "line": 109,
+            "description": "A method that completes a quest.",
+            "itemtype": "method",
+            "name": "completeQuest",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "Name of quest to complete.",
+                    "type": "String"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.Quests.QuestManager",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests"
+        },
+        {
+            "file": "src\\Quests-1.0.0.js",
+            "line": 124,
+            "description": "A method that updates a quest, and completes the quest automatically if the objective is met.",
+            "itemtype": "method",
+            "name": "updateQuest",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "Name of quest to update.",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "Value to add to the current variable, or to set to, depending on type.",
+                    "type": "Boolean or number"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.Quests.QuestManager",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests"
+        },
+        {
+            "file": "src\\Quests-1.0.0.js",
+            "line": 152,
+            "description": "A method that returns whether a quest has been started or not.",
+            "itemtype": "method",
+            "name": "checkStarted",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "Name of quest to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Has the quest been started?",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.Quests.QuestManager",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests"
+        },
+        {
+            "file": "src\\Quests-1.0.0.js",
+            "line": 168,
+            "description": "A method that returns whether a quest has been started and is also active or not.",
+            "itemtype": "method",
+            "name": "checkActive",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "Name of quest to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Is the quest currently active?",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.Quests.QuestManager",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests"
+        },
+        {
+            "file": "src\\Quests-1.0.0.js",
+            "line": 184,
+            "description": "A method that returns whether a quest has been completed or not.",
+            "itemtype": "method",
+            "name": "checkCompleted",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "Name of quest to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Has the quest been completed?",
+                "type": "Boolean"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.Quests.QuestManager",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests"
+        },
+        {
+            "file": "src\\Quests-1.0.0.js",
+            "line": 200,
+            "description": "A method that returns the description string of any given quest.",
+            "itemtype": "method",
+            "name": "returnDescription",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "Name of quest to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Quest description.",
+                "type": "String"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.Quests.QuestManager",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests"
+        },
+        {
+            "file": "src\\Quests-1.0.0.js",
+            "line": 215,
+            "description": "A method that returns required value for current quest.",
+            "itemtype": "method",
+            "name": "returnObjective",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "Name of quest to check.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "What is needed to complete the quest.",
+                "type": "Boolean or string"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.Quests.QuestManager",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.Quests"
+        }
+    ],
+    "warnings": []
+}

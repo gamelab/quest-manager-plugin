@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>src\Quests-1.0.0.js - Quests</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="Quests"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/Kiwi.Plugins.QuestManager.html">Kiwi.Plugins.QuestManager</a></li>
+            
+                <li><a href="../classes/Kiwi.Plugins.Quests.QuestManager.html">Kiwi.Plugins.Quests.QuestManager</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/Kiwi.html">Kiwi</a></li>
+            
+                <li><a href="../modules/Plugins.html">Plugins</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: src\Quests-1.0.0.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+* The basic Quest Manager Object. Contains name and version number. 
+* 
+* @module Kiwi
+* @submodule Plugins
+* @namespace Kiwi.Plugins
+* @class QuestManager
+*/
+Kiwi.Plugins.QuestManager = {
+    name: &#x27;Quests&#x27;,
+    version: &#x27;1.0.0&#x27;
+};
+
+//CREATING QUESTS
+/**
+*A Kiwi Plugin GameObject that can manage a set of quests.
+*
+*You can currently set two types of quests. 
+*Number quests keep track of a variable, and once it has reached it&#x27;s specified objective, the quest is completed.
+*Boolean quests keep track of a variable and once it is true or false, depending on the objective set, the quest is completed.
+*
+* @class QuestManager
+* @extends Entity
+* @namespace Kiwi.Plugins.Quests
+* @constructor
+*/
+
+/*
+VALUES:
+active: Set if a quest has been started, and not yet completed.
+complete: Set if a quest has been successfully completed.
+type: &#x27;number&#x27; or &#x27;boolen&#x27;.
+objective: Required value to complete an active quest.
+current: Current value. Need to set current value to your objective value to complete a quest.
+description: A string used to aid the player.
+
+EXAMPLE:
+Kiwi.Plugins.QuestManager.Quests = {
+    //Set your quests below
+    numberExample: {
+        active: false,
+        complete: false,
+        type: &#x27;number&#x27;,
+        objective: 5,
+        current: 0,
+        description: &#x27;Collect 5 items.&#x27;
+    },
+
+    booleanExample: {
+        active: false,
+        complete: false,
+        type: &#x27;boolean&#x27;,
+        objective: true,
+        current: false,
+        description: &#x27;Complete a simple task.&#x27;
+    }
+}
+*/
+
+Kiwi.Plugins.QuestManager.Quests = {
+    //Set your quests below. &#x27;test&#x27; is a temporary example.
+    test: {
+        active: false,
+        complete: false,
+        type: &#x27;number&#x27;,
+        objective: 5,
+        current: 0,
+        description: &#x27;Collect 5 items.&#x27;
+    }
+}
+
+Kiwi.PluginManager.register(Kiwi.Plugins.QuestManager);
+
+/**
+* A method that creates a new quest. A quest is not started until startQuest is called, this method only creates and stores a new quest.
+* @method createQuest
+* @param id {string} The name of the quest created.
+* @param typeVar {string} The type of quest created. &#x27;number&#x27; or &#x27;boolean&#x27;.
+* @param startValue {boolean or number} Starting value.
+* @param objectiveVar {boolean or number} Objective value. Once the current value maches, quest is completed.
+* @param descriptionVar {string} String describing item.
+* @public
+*/
+Kiwi.Plugins.QuestManager.createQuest = function(id, typeVar, startValue, objectiveVar, descriptionVar){
+    Kiwi.Plugins.QuestManager.Quests[id] = {
+        active: false,
+        complete: false,
+        type: typeVar,
+        objective: objectiveVar,
+        current: startValue,
+        description: descriptionVar
+    }
+}
+
+/**
+* A method that starts a created quest.
+* @method startQuest
+* @param id {string} Name of quest to start.
+* @public
+*/
+Kiwi.Plugins.QuestManager.startQuest = function (id) {
+    if (Kiwi.Plugins.QuestManager.Quests[id] == undefined) {
+        console.log(&#x27;Quest Manager: Error starting quest. Attempted id:&#x27;, id);
+        return;
+    }
+    Kiwi.Plugins.QuestManager.Quests[id].active = true;
+}
+
+/**
+* A method that completes a quest.
+* @method completeQuest
+* @param id {string} Name of quest to complete.
+* @public
+*/
+Kiwi.Plugins.QuestManager.completeQuest = function (id) {
+    if (Kiwi.Plugins.QuestManager.Quests[id] == undefined) {
+        console.log(&#x27;Quest Manager: Error completing quest. Attempted id:&#x27;, id);
+        return;
+    }
+    Kiwi.Plugins.QuestManager.Quests[id].active = false;
+    Kiwi.Plugins.QuestManager.Quests[id].complete = true;
+}
+
+/**
+* A method that updates a quest, and completes the quest automatically if the objective is met.
+* @method updateQuest
+* @param id {string} Name of quest to update.
+* @param value {boolean or number} Value to add to the current variable, or to set to, depending on type.
+* @public
+*/
+Kiwi.Plugins.QuestManager.updateQuest = function (id, value) {
+    var quest = Kiwi.Plugins.QuestManager.Quests[id];
+    if (quest == undefined) {
+        console.log(&#x27;Quest Manager: Error updating quest. Attempted id:&#x27;, id, &#x27;,attempted value:&#x27;,value);
+        return;
+    }
+    if (typeof (value) == typeof (quest.current)) {
+        if (typeof (value) == &#x27;number&#x27;) {
+            quest.current += value;
+            if (quest.current &gt;= quest.objective) {
+                Kiwi.Plugins.QuestManager.completeQuest(id);
+            }
+        } else if (typeof (value) == &#x27;boolean&#x27;) {
+            quest.current = value;
+            if (quest.current === quest.objective) {
+                Kiwi.Plugins.QuestManager.completeQuest(id);
+            }
+        }
+    }
+}
+
+/**
+* A method that returns whether a quest has been started or not.
+* @method checkStarted
+* @param id {string} Name of quest to check.
+* @return {boolean} Has the quest been started?
+* @public
+*/
+Kiwi.Plugins.QuestManager.checkStarted = function (id) {
+    if (Kiwi.Plugins.QuestManager.Quests[id] == undefined) {
+        console.log(&#x27;Quest Manager: Error checking quest. Attempted id:&#x27;, id);
+        return;
+    }
+    if (Kiwi.Plugins.QuestManager.Quests[id].complete || Kiwi.Plugins.QuestManager.Quests[id].active) return true;
+    return false;
+}
+
+/**
+* A method that returns whether a quest has been started and is also active or not.
+* @method checkActive
+* @param id {string} Name of quest to check.
+* @return {boolean} Is the quest currently active?
+* @public
+*/
+Kiwi.Plugins.QuestManager.checkActive = function (id) {
+    if (Kiwi.Plugins.QuestManager.Quests[id] == undefined) {
+        console.log(&#x27;Quest Manager: Error checking quest activity. Attempted id:&#x27;, id);
+        return;
+    }
+    if (Kiwi.Plugins.QuestManager.Quests[id].active) return true;
+    return false;
+}
+
+/**
+* A method that returns whether a quest has been completed or not.
+* @method checkCompleted
+* @param id {string} Name of quest to check.
+* @return {boolean} Has the quest been completed?
+* @public
+*/
+Kiwi.Plugins.QuestManager.checkCompleted = function (id) {
+    if (Kiwi.Plugins.QuestManager.Quests[id] == undefined) {
+        console.log(&#x27;Quest Manager: Error checking quest completion. Attempted id:&#x27;, id);
+        return;
+    }
+    if (Kiwi.Plugins.QuestManager.Quests[id].complete) return true;
+    return false;
+}
+
+/**
+* A method that returns the description string of any given quest.
+* @method returnDescription
+* @param id {string} Name of quest to check.
+* @return {string} Quest description.
+* @public
+*/
+Kiwi.Plugins.QuestManager.returnDescription = function (id) {
+    if (Kiwi.Plugins.QuestManager.Quests[id] == undefined) {
+        console.log(&#x27;Quest Manager: Error requesting description. Attempted id:&#x27;, id);
+        return;
+    }
+    return Kiwi.Plugins.QuestManager.Quests[id].description;
+}
+
+/**
+* A method that returns required value for current quest.
+* @method returnObjective
+* @param id {string} Name of quest to check.
+* @return {boolean or string} What is needed to complete the quest.
+* @public
+*/
+Kiwi.Plugins.QuestManager.returnObjective = function (id) {
+    if (Kiwi.Plugins.QuestManager.Quests[id] == undefined) {
+        console.log(&#x27;Quest Manager: Error requesting objective. Attempted id:&#x27;, id);
+        return;
+    }
+    return Kiwi.Plugins.QuestManager.Quests[id].objective;
+}
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
